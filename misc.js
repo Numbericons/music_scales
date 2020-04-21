@@ -53,10 +53,13 @@ function randomProgression(root, type, numChords, inclSeven) {
 // const triads = scaleTriads('E#','major',false);
 // console.log(triads);
 
-const progression = randomProgression('E','major',4);
+const progression = randomProgression('D','minor',4);
 console.log(progression);
 
 
 
 //TO DO:
 //account for when a note can be called flat/sharp to make all notes appear in a scale
+
+//how to create a midi file
+//can a midi file be played on a website? Easily?
