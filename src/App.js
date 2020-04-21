@@ -62,6 +62,10 @@ class App extends React.Component{
     this.setState({ root: event.target.value });
   }
 
+  majMin = (event) => {
+    this.setState({ majMin: event.target.value });
+  }
+
   submitNotes = (event) => {
     event.preventDefault();
     // alert("You are submitting as root " + this.state.root);
@@ -69,11 +73,9 @@ class App extends React.Component{
 
   render(){
     // const root = 'D';
-    debugger
-    const type = 'major';
-    const notes = scalesNotes(this.state.root, type).join(' ');
-    const triads = scaleTriads(this.state.root, type).join(' ');
-    const progression = randomProgression(this.state.root, type, 4);
+    const notes = scalesNotes(this.state.root, this.state.majMin).join(' ');
+    const triads = scaleTriads(this.state.root, this.state.majMin).join(' ');
+    const progression = randomProgression(this.state.root, this.state.majMin, 4);
     return (
       <div>
         <form className="noteSelect" onSubmit={this.submitNotes}>
@@ -82,18 +84,18 @@ class App extends React.Component{
             <input type='text' onChange={this.changeNote}/>
           </div>
           <div></div>
-          <div className="majMinInput">
+          <div className="majMinInput" onSubmit={this.majMin}>
             <h4>Major or minor (enter lowercase):</h4>
             <input type='text'/>
           </div>
-          <button>Click</button>
+          <button>Calculate</button>
         </form>
         <div className="output">
           <div>
-            {this.state.root} {type}
+            Root note: {this.state.root} Type: {this.state.type}
           </div>
           <div>
-            {notes}
+            Notes in scale: {notes}
           </div>
           <ul>
             {triads}
