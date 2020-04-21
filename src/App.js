@@ -64,15 +64,16 @@ class App extends React.Component{
 
   submitNotes = (event) => {
     event.preventDefault();
-    alert("You are submitting as root " + this.state.root);
+    // alert("You are submitting as root " + this.state.root);
   }
 
   render(){
-    const root = 'D';
+    // const root = 'D';
+    debugger
     const type = 'major';
-    const notes = scalesNotes(root, type).join(' ');
-    const triads = scaleTriads(root, type).join(' ');
-    const progression = randomProgression(root, type, 4);
+    const notes = scalesNotes(this.state.root, type).join(' ');
+    const triads = scaleTriads(this.state.root, type).join(' ');
+    const progression = randomProgression(this.state.root, type, 4);
     return (
       <div>
         <form className="noteSelect" onSubmit={this.submitNotes}>
@@ -85,10 +86,11 @@ class App extends React.Component{
             <h4>Major or minor (enter lowercase):</h4>
             <input type='text'/>
           </div>
+          <button>Click</button>
         </form>
-        <body className="output">
+        <div className="output">
           <div>
-            {root} {type}
+            {this.state.root} {type}
           </div>
           <div>
             {notes}
@@ -101,7 +103,7 @@ class App extends React.Component{
               return (<li key={idx}>{prog} </li>)
             })}
           </ul>
-        </body>
+        </div>
       </div>
     );
   }
