@@ -1,41 +1,33 @@
 import React from 'react';
 import './App.css';
+import Constants from './constants.js';
 
-const notes = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
-const majorPattern = 'WWHWWWH';
-const minorPattern = 'WHWWHWW';
-// const majTriadPatt = [4, 3];
-// const minTriadsPatt = [3, 4];
-
-const majorTriads = ['I', 'ii', 'iii', 'IV', 'V', 'vi', 'vii0'];
-const minorTriads = ['i', 'ii0', 'III', 'iv', 'VI', 'VII'];
-
+const constants = Constants;
 
 function scalesNotes(root, type) {
   let scale = [root];
-  const pattern = type === 'major' ? majorPattern : minorPattern;
+  const pattern = type === 'major' ? constants.majorPattern : constants.minorPattern;
 
   for (let z = 0; z < pattern.length; z++) {
     const semitones = pattern[z] === 'W' ? 2 : 1;
-    const lastIdx = notes.indexOf(scale[scale.length - 1]);
-    scale.push(notes[(lastIdx + semitones) % notes.length]);
+    const lastIdx = constants.notes.indexOf(scale[scale.length - 1]);
+    scale.push(constants.notes[(lastIdx + semitones) % constants.notes.length]);
   }
   return scale;
 }
 
-function scaleTriads(root, type = 'major') { //major only
+function scaleTriads(root, type = 'major') {
   const scale = scalesNotes(root, type);
-  const triads = type === 'major' ? majorTriads : minorTriads;
+  const triads = type === 'major' ? constants.majorTriads : constants.minorTriads;
 
   return triads.map((triad, i) => {
-    // const semitones = (triad === triad.toUpperCase()) ? majTriadPatt : minTriadsPatt;
     return triad + ': ' + scale[i] + " " + scale[(i + 2) % scale.length] + " " + scale[(i + 4) % scale.length];
   })
 }
 
 function randomProgression(root, type, numChords, inclSeven) {
   let triads = scaleTriads(root, type);
-  console.log(triads);
+  // console.log(triads);
   let prog = [];
   let progNum = [];
 
@@ -49,7 +41,7 @@ function randomProgression(root, type, numChords, inclSeven) {
   return prog;
 }
 
-class App extends React.Component{
+class Music extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -58,12 +50,16 @@ class App extends React.Component{
     }
   }
 
-  changeNote = (event) => {
-    this.setState({ root: event.target.value });
+  myChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    this.setState({ [nam]: val });
   }
-
-  majMin = (event) => {
-    this.setState({ majMin: event.target.value });
+  
+  change = (event) => {
+    const attr = event.target.name;
+    let val = event.target.value;
+    this.setState({ [attr]: val });
   }
 
   submitNotes = (event) => {
@@ -81,18 +77,18 @@ class App extends React.Component{
         <form className="noteSelect" onSubmit={this.submitNotes}>
           <div className="rootInput">
             <h4>Enter a Root Note (add a # for sharp):</h4>
-            <input type='text' onChange={this.changeNote}/>
+            <input type='text' name='root' onChange={this.change}/>
           </div>
           <div></div>
-          <div className="majMinInput" onSubmit={this.majMin}>
+          <div className="majMinInput">
             <h4>Major or minor (enter lowercase):</h4>
-            <input type='text'/>
+            <input type='text' name='majMin' onChange={this.change}/>
           </div>
-          <button>Calculate</button>
+          {/* <button>Calculate</button> */}
         </form>
         <div className="output">
           <div>
-            Root note: {this.state.root} Type: {this.state.type}
+            Root note: {this.state.root} Type: {this.state.majMin}
           </div>
           <div>
             Notes in scale: {notes}
@@ -111,4 +107,4 @@ class App extends React.Component{
   }
 }
 
-export default App;
+export default Music;
