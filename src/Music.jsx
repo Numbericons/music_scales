@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import { scalesNotes, scaleTriads, randomProgression } from './scaleGen.js';
+import { scalesNotes, scaleTriads, randomProgression } from './Archive/scaleGen.js';
+const scaleGen = require('./scaleGen2.js');
 
 class Music extends React.Component{
   constructor(props){
@@ -29,10 +30,10 @@ class Music extends React.Component{
   }
 
   render(){
-    // const root = 'D';
-    const notes = scalesNotes(this.state.root, this.state.majMin).join(' ');
-    const triads = scaleTriads(this.state.root, this.state.majMin).join(' ');
-    const progression = randomProgression(this.state.root, this.state.majMin, 4);
+    const octave = "3";
+    const notes = scaleGen.scalesNotes(this.state.root, this.state.majMin).join(' ');
+    const triads = scaleGen.scaleTriads(this.state.root, this.state.majMin,octave,false).join(' ');
+    const progression = scaleGen.randomProgression(this.state.root, this.state.majMin, octave, 4);
     return (
       <div>
         <form className="noteSelect" onSubmit={this.submitNotes}>

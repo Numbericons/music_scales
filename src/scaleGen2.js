@@ -1,4 +1,3 @@
-// import Constants from './constants.js';
 const Constants = require('./constants2.js')
 
 const constants = Constants.constants;
