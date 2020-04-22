@@ -3,14 +3,15 @@ var MidiWriter = require('midi-writer-js');
 const { Chord } = require("@tonaljs/tonal");
 var track = new MidiWriter.Track();
 
-const key = 'F';
+const key = 'E';
 const type = 'major';
-const numChords = 8;
-const octave = "3";
+const numChords = 150;
+const octave = "4";
+const duration = "1"
 const prog = scaleGen.randomProgression(key, type, octave, numChords, false, true);
 let array = [];
 for (let i = 0; i < prog.length; i++) {
-  array.push(new MidiWriter.NoteEvent({ pitch: prog[i], duration: '1' }));
+  array.push(new MidiWriter.NoteEvent({ pitch: prog[i], duration: duration }));
 }
 
 track.addEvent(array, function (event, index) {
