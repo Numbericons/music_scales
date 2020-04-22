@@ -1,4 +1,4 @@
-export default { 
+let constants = {
   notes: ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'],
   majorPattern: 'WWHWWWH',
   minorPattern: 'WHWWHWW',
@@ -6,4 +6,8 @@ export default {
   minTriadsPatt: [3, 4],
   majorTriads: ['I', 'ii', 'iii', 'IV', 'V', 'vi', 'vii0'],
   minorTriads: ['i', 'ii0', 'III', 'iv', 'VI', 'VII']
-};
+}
+
+module.exports = {
+  constants
+}
