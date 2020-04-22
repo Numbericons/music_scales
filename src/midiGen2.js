@@ -1,7 +1,6 @@
-// const musicConst = require('./constants2.js');
 const scaleGen = require('./scaleGen2.js');
 var MidiWriter = require('midi-writer-js');
-// const { Chord } = require("@tonaljs/tonal");
+const { Chord } = require("@tonaljs/tonal");
 var track = new MidiWriter.Track();
 
 const key = 'F';
@@ -13,12 +12,20 @@ let array = [];
 for (let i = 0; i < prog.length; i++) {
   array.push(new MidiWriter.NoteEvent({ pitch: prog[i], duration: '1' }));
 }
-// array.push(new MidiWriter.NoteEvent({ pitch: prog[0].join(''), duration: '1' }));
 
 track.addEvent(array, function (event, index) {
-  return { sequential: true };
+  return { sequential: false };
 }
 );
 
+// track.addEvent(
+//   new MidiWriter.NoteEvent({
+//     velocity: 1,
+//     duration: '1', // 'T15', // 'T1584'
+//     pitch: prog[0],
+//     startTick: 0
+//   })
+// );
+
 var write = new MidiWriter.Writer(track);
-console.log(write.saveMIDI(`${key}_${type}_${new Date}`));
+write.saveMIDI(`${key}_${type}_${new Date}`);

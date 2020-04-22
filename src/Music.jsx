@@ -24,10 +24,10 @@ class Music extends React.Component{
     this.setState({ [attr]: val });
   }
 
-  submitNotes = (event) => {
-    event.preventDefault();
-    // alert("You are submitting as root " + this.state.root);
-  }
+  // submitNotes = (event) => {
+  //   event.preventDefault();
+  //   // alert("You are submitting as root " + this.state.root);
+  // }
 
   render(){
     const octave = "3";
@@ -36,7 +36,7 @@ class Music extends React.Component{
     const progression = scaleGen.randomProgression(this.state.root, this.state.majMin, octave, 4);
     return (
       <div>
-        <form className="noteSelect" onSubmit={this.submitNotes}>
+        <form className="noteSelect"> 
           <div className="rootInput">
             <h4>Enter a Root Note (add a # for sharp):</h4>
             <input type='text' name='root' onChange={this.change}/>
@@ -46,7 +46,6 @@ class Music extends React.Component{
             <h4>Major or minor (enter lowercase):</h4>
             <input type='text' name='majMin' onChange={this.change}/>
           </div>
-          {/* <button>Calculate</button> */}
         </form>
         <div className="output">
           <div>
