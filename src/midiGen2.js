@@ -4,18 +4,19 @@ const { Chord } = require("@tonaljs/tonal");
 var track = new MidiWriter.Track();
 
 const key = 'E';
-const type = 'major';
+const tonality = 'major';
 const numChords = 150;
 const octave = "4";
 const duration = "1"
-const prog = scaleGen.randomProgression(key, type, octave, numChords, false, true);
+const sequential = false;
+const prog = scaleGen.randomProgression(key, tonality, octave, numChords, false, true);
 let array = [];
 for (let i = 0; i < prog.length; i++) {
   array.push(new MidiWriter.NoteEvent({ pitch: prog[i], duration: duration }));
 }
 
 track.addEvent(array, function (event, index) {
-  return { sequential: false };
+  return { sequential: sequential };
 }
 );
 
@@ -27,6 +28,7 @@ track.addEvent(array, function (event, index) {
 //     startTick: 0
 //   })
 // );
-
+const type = sequential ? 'melody' : 'triads';
+track.addTrackName(`${key} ${tonality} ${type}`);
 var write = new MidiWriter.Writer(track);
-write.saveMIDI(`${key}_${type}_${new Date}`);
+write.saveMIDI(`${key}_${tonality}_${new Date}`);
