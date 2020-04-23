@@ -132,3 +132,15 @@ body {
   vertical-align: middle;
   cursor: pointer;
 } */
+
+.rootTone {
+  margin-bottom: 3vh;
+}
+
+.scaleNotes {
+  margin-bottom: 3vh;
+}
+
+.triads {
+  margin-bottom: 3vh;
+}

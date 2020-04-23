@@ -162,16 +162,17 @@ class Music extends React.Component{
           </div>
         </div>
         <div className="output">
-          <div>
+          <div className="rootTone">
             Root note: {this.state.root} Type: {this.state.tone}
           </div>
-          <div>
+          <div className="scaleNotes">
             Notes in scale: {notes}
           </div>
-          <ul>
-            {triads}
+          <ul className="triads">
+            Triads from scale: {triads}
           </ul>
           <ul>
+            <h4>Random Progressions:</h4>
             {progression.map(function (prog, idx) {
               return (<li key={idx}>{prog} </li>)
             })}
