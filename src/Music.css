@@ -62,6 +62,15 @@ table {
   }
 }
 
+body {
+  background-image: url("https://pbs.twimg.com/profile_images/1065270741904453632/H2aCsyFK.jpg");
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color:lightgreen;  */
+
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -87,12 +96,15 @@ table {
 }
 
 .noteSelect {
+  margin-top: 25vh;
   display: flex;
   justify-content: center;
 }
 
 .rootInput {
-  margin-right: 5vw;
+  margin-right: 2vw;
+  display: flex;
+  flex-direction: row;
 }
 
 .output {
@@ -101,3 +113,22 @@ table {
   align-items: center;
   margin-top: 10vh;
 }
+
+.radioInLine {
+  border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  break-before: always;
+  margin: 0 0 3em 0;
+}
+
+/* .radioInLine {
+  position: relative;
+  display: inline-block;
+  padding-left: 20px;
+  margin-bottom: 0;
+  font-weight: 400;
+  vertical-align: middle;
+  cursor: pointer;
+} */

@@ -7,7 +7,7 @@ class Music extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      root: '',
+      root: 'C',
       tone: 'major',
       selectedOption: 'major'
     }
@@ -35,32 +35,129 @@ class Music extends React.Component{
     return (
       <div>
         <div className="noteSelect"> 
-          <div className="rootInput">
-            <h4>Enter a Root Note (add a # for sharp):</h4>
-            <input type='text' name='root' onChange={this.change}/>
+          <div>
+            {/* <h4>Enter a Root Note (add a # for sharp):</h4>
+            <input type='text' name='root' onChange={this.change}/> */}
+            <form className="rootInput">
+              <div className="radio">
+                <label className='radioInLine'>
+                  <input type="radio" value="A"
+                    checked={this.state.root === 'A'}
+                    name='root' onChange={this.change} />
+                  A
+                </label>
+              </div>
+              <div className="radio" className='radioInLine'>
+                <label>
+                  <input type="radio" value="A#"
+                    checked={this.state.root === 'A#'}
+                    name='root' onChange={this.change} />
+                  A#
+                </label>
+              </div>
+              <div className="radio">
+                <label className='radioInLine'>
+                  <input type="radio" value="B"
+                    checked={this.state.root === 'B'}
+                    name='root' onChange={this.change} />
+                  B
+                </label>
+              </div>
+              <div className="radio">
+                <label className='radioInLine'>
+                  <input type="radio" value="C"
+                    checked={this.state.root === 'C'}
+                    name='root' onChange={this.change} />
+                  C
+                </label>
+              </div>
+              <div className="radio">
+                <label className='radioInLine'>
+                  <input type="radio" value="C#"
+                    checked={this.state.root === 'C#'}
+                    name='root' onChange={this.change} />
+                  C#
+                </label>
+              </div>
+              <div className="radio">
+                <label className='radioInLine'>
+                  <input type="radio" value="D"
+                    checked={this.state.root === 'D'}
+                    name='root' onChange={this.change} />
+                  D
+                </label>
+              </div>
+              <div className="radio">
+                <label className='radioInLine'>
+                  <input type="radio" value="D#"
+                    checked={this.state.root === 'D#'}
+                    name='root' onChange={this.change} />
+                  D#
+                </label>
+              </div>
+              <div className="radio">
+                <label className='radioInLine'>
+                  <input type="radio" value="E"
+                    checked={this.state.root === 'E'}
+                    name='root' onChange={this.change} />
+                  E
+                </label>
+              </div>
+              <div className="radio">
+                <label className='radioInLine'>
+                  <input type="radio" value="F"
+                    checked={this.state.root === 'F'}
+                    name='root' onChange={this.change} />
+                  F
+                </label>
+              </div>
+              <div className="radio">
+                <label className='radioInLine'>
+                  <input type="radio" value="F#"
+                    checked={this.state.root === 'F#'}
+                    name='root' onChange={this.change} />
+                  F#
+                </label>
+              </div>
+              <div className="radio">
+                <label className='radioInLine'>
+                  <input type="radio" value="G"
+                    checked={this.state.root === 'G'}
+                    name='root' onChange={this.change} />
+                  G
+                </label>
+              </div>
+              <div className="radio">
+                <label className='radioInLine'>
+                  <input type="radio" value="G#"
+                    checked={this.state.root === 'G#'}
+                    name='root' onChange={this.change} />
+                  G#
+                </label>
+              </div>
+            </form>
           </div>
           <div></div>
-          <div className="majMinInput">
-            {/* <h4>Major or minor (enter lowercase):</h4>
-            <input type='text' name='tone' onChange={this.change}/> */}
-          <form>
-            <div className="radio">
-              <label>
-                <input type="radio" value="major" 
-                              checked={this.state.selectedOption === 'major'} 
-                              onChange={this.handleOptionChange} />
-                Major
-              </label>
-            </div>
-            <div className="radio">
-              <label>
-                <input type="radio" value="minor" 
-                              checked={this.state.selectedOption === 'minor'} 
-                              onChange={this.handleOptionChange} />
-                Minor
-              </label>
-            </div>
-          </form>
+          <div className="toneInput">
+            <form>
+              <div className="radio">
+                <label>
+                  <input type="radio" value="major" 
+                                checked={this.state.selectedOption === 'major'} 
+                                onChange={this.handleOptionChange} />
+                  Major
+                </label>
+              </div>
+              <div className="radio">
+                <label>
+                  <input type="radio" value="minor" 
+                                checked={this.state.selectedOption === 'minor'} 
+                                onChange={this.handleOptionChange} />
+                  Minor
+                </label>
+              </div>
+            </form>
+ 
 
           </div>
         </div>
