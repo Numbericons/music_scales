@@ -1,6 +1,6 @@
 import React from 'react';
 import './Music.css';
-import { scalesNotes, scaleTriads, randomProgression } from './Archive/scaleGen.js';
+// import { scalesNotes, scaleTriads, randomProgression } from './Archive/scaleGen.js';
 const scaleGen = require('./scaleGen2.js');
 
 class Music extends React.Component{
@@ -47,8 +47,8 @@ class Music extends React.Component{
                   A
                 </label>
               </div>
-              <div className="radio" className='radioInLine'>
-                <label>
+              <div className="radio">
+                <label className='radioInLine'>
                   <input type="radio" value="A#"
                     checked={this.state.root === 'A#'}
                     name='root' onChange={this.change} />

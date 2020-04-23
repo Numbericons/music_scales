@@ -64,4 +64,8 @@ console.log(progression);
 //how to create a midi file
 //can a midi file be played on a website? Easily?
 
-//make definitions file to avoid constants in main jsx
+//melodies moving around octaves
+
+//DONE:
+
+//make definitions file to avoid constants in main jsx 
