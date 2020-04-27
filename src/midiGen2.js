@@ -1,6 +1,6 @@
 const scaleGen = require('./scaleGen2.js');
 var MidiWriter = require('midi-writer-js');
-const { Chord } = require("@tonaljs/tonal");
+// const { Chord } = require("@tonaljs/tonal");
 var track = new MidiWriter.Track();
 
 const key = 'E';
@@ -8,11 +8,11 @@ const tonality = 'major';
 const numChords = 150;
 const octave = "4";
 let duration = "1"
-const randDuration = true;
+const randDuration = false;
 let velocity = 50
 const randVelocity = true;
-const sequential = true;
-const randMelody = true;
+const sequential = false;
+const randMelody = false;
 let array = [];
 let music;
 

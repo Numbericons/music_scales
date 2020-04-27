@@ -171,10 +171,10 @@ class Music extends React.Component{
           <ul className="triads">
             Triads from scale: {triads}
           </ul>
-          <ul>
-            <h4>Random Progressions:</h4>
+          <ul className='progressions'>
+            <h4 className='progressions-title'>Random Progressions:</h4>
             {progression.map(function (prog, idx) {
-              return (<li key={idx}>{prog} </li>)
+              return (<li className='progressions' key={idx}> {prog} </li>)
             })}
           </ul>
         </div>
