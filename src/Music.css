@@ -96,12 +96,22 @@ body {
 }
 
 .noteSelect {
+  font-family: 'Open Sans', sans-serif;
   margin-top: 20vh;
   display: flex;
   justify-content: center;
+  font-size: 1.25vw;
+}
+
+.noteSelect-notes {
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  color: deeppink;
 }
 
 .rootInput {
+  font-family: 'Open Sans', sans-serif;
   margin-right: 2vw;
   display: flex;
   flex-direction: row;
@@ -133,15 +143,64 @@ body {
 } */
 
 .rootTone {
+  display: flex;
+  font-family: 'Open Sans', sans-serif;
   margin-bottom: 3vh;
+  align-items: flex-end;
+}
+.rootTone-text {
+  font-size: 1.5vw;
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: underline;
+}
+.rootTone-info {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5vw;
+  font-weight: 900;
+  color: crimson;
+  margin: 0vh 0vw 0vh .5vw;
 }
 
 .scaleNotes {
+  display: flex;
+  font-family: 'Open Sans', sans-serif;
   margin-bottom: 3vh;
+  align-items: flex-end ;
+}
+
+.scaleNotes-text {
+  font-size: 1.25vw;
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: underline;
+}
+
+.scaleNotes-info {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.25vw;
+  font-weight: 900;
+  color: darkgreen;
+  margin: 0vh 0vw 0vh .5vw;
 }
 
 .triads {
+  display: flex;
+  font-family: 'Open Sans', sans-serif;
   margin-bottom: 3vh;
+  align-items: flex-end ;
+}
+
+.triads-text {
+  font-size: 1.25vw;
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: underline;
+}
+
+.triads-info {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.25vw;
+  font-weight: 900;
+  color: darkred;
+  margin: 0vh 0vw 0vh .5vw;
 }
 
 .progressions {

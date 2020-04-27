@@ -35,7 +35,7 @@ class Music extends React.Component{
     return (
       <div>
         <div className="noteSelect"> 
-          <div>
+          <div className="noteSelect-notes">
             {/* <h4>Enter a Root Note (add a # for sharp):</h4>
             <input type='text' name='root' onChange={this.change}/> */}
             <form className="rootInput">
@@ -163,16 +163,25 @@ class Music extends React.Component{
         </div>
         <div className="output">
           <div className="rootTone">
-            Root note: {this.state.root} Type: {this.state.tone}
+            <h5 className="rootTone-text">Root note:</h5>
+            <div className="rootTone-info">
+              {this.state.root} ({this.state.tone})
+            </div>
           </div>
           <div className="scaleNotes">
-            Notes in scale: {notes}
+            <h5 className="scaleNotes-text">Notes in scale:</h5>
+            <div className="scaleNotes-info">
+              {notes}
+            </div>
           </div>
           <ul className="triads">
-            Triads from scale: {triads}
+            <h5 className="triads-text">Triads from scale: </h5>
+            <div className="triads-info">
+              {triads}
+            </div>
           </ul>
           <ul className='progressions'>
-            <h4 className='progressions-title'>Random Progressions:</h4>
+            <h4 className='progressions-title'>Random Progression:</h4>
             {progression.map(function (prog, idx) {
               return (<li className='progressions' key={idx}> {prog} </li>)
             })}
