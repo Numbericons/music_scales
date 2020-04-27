@@ -78,6 +78,16 @@ function randomMelody(root, tonality, octave, numChords, inclSeven) {
   return music;
 }
 
+// const scale = scalesNotes('D#','minor');
+// console.log(scale);
+
+// const triads = scaleTriads('E#','major');
+// const triads = scaleTriads('E#','major',false);
+// console.log(triads);
+
+// const progression = randomProgression('D', 'minor', 4);
+// console.log(progression);
+
 module.exports = {
   scalesNotes,
   scaleTriads,

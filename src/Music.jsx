@@ -141,7 +141,7 @@ class Music extends React.Component{
           <div className="toneInput">
             <form>
               <div className="radio">
-                <label>
+                <label className="radio-label">
                   <input type="radio" value="major" 
                                 checked={this.state.selectedOption === 'major'} 
                                 onChange={this.handleOptionChange} />
@@ -149,7 +149,7 @@ class Music extends React.Component{
                 </label>
               </div>
               <div className="radio">
-                <label>
+                <label className="radio-label">
                   <input type="radio" value="minor" 
                                 checked={this.state.selectedOption === 'minor'} 
                                 onChange={this.handleOptionChange} />
